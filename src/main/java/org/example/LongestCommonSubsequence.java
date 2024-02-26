@@ -51,14 +51,9 @@ public class LongestCommonSubsequence {
     }
 
     public static void main(String[] args)  throws IOException {
-
         String text1 = "apple";
-
         String text2 = "people";
-
         int result = longestCommonSubsequence(text1, text2);
-        //int result = longestCommonSubsequenceOpt2(text1, text2);
-
         System.out.printf("The longest common subsequence is \"%s\" and its length is %d.%n", text2, result);
     }
 }
