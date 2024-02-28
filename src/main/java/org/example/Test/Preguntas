@@ -1,0 +1,105 @@
+a. Actualice el código para que utilice programación dinámica.
+
+private static int function(int n, int [] dp) {
+        if (n == 0) {
+            return 0;
+        }
+
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+
+         dp[n] = function(n - 1, dp) + function(n - 2, dp)
+         + function(n - 3, dp);
+
+         return dp[n];
+    }
+
+b. ¿Seguimos necesitando el caso base después de convertir el código a programación dinámica? ¿por qué?
+- Si, todavía necesitamos el caso base incluso después de convertir el código a programación dinámica, porque define la condición de terminación de las llamadas recursivas, y como lo vimos en clase se puede optimizar con topdown o bottom up
+solo con la formula, teniendo en cuenta que estas dos condicionales si son importante if (n == 0) {
+                                                                                   return 0;
+                                                                               }
+
+                                                                               if (n == 1 || n == 2) {
+                                                                                   return 1;
+                                                                               }
+Sin él, la recursividad continuaría indefinidamente, lo que provocaría un desbordamiento de la pila.
+
+P2: Si podemos resolver un problema combinando las soluciones de sus subproblemas, ¿eso significa que podemos resolverlo con un algoritmo DP?
+- Sí, ya que es una técnica de optimización que se utiliza para resolver problemas complejos dividiéndolos en subproblemas más pequeños y resolviéndolos de manera de memorizacion o tabulacion. La clave es almacenar y reutilizar las soluciones a subproblemas ya resueltos para que asi no calculemos lo mismo.
+
+P3: En el algoritmo Edit-Distance, cuando realizamos una operación de inserción, ¿por qué necesitamos
+mira la distancia de edición de la posición del carácter anterior de la segunda cadena?
+
+- por que como estamos insertando un carácter en la primera cadena desde la segunda cadena, y el costo de la operación es aumentar 1.
+- Cuando es insercion, y los dos palabras hacen match, se debe tambien tomar en cuenta el digito de la diagonal, osea Replace,
+cuando no hace match, se toma en cuenta el digito minimo, pero por el cost se le suma +1.
+ un ejemplo de mi excel
+/**
+         * Words: gatos and patos
+         * 0 1 2 3 4 5
+           1 1 2 3 4 5
+           2 2 1 2 3 4
+           3 3 2 1 2 3
+           4 4 3 2 1 2
+           5 5 4 3 2 1
+         * Result:1
+         */
+
+		g	a	t	o	s
+	0	1	2	3	4	5
+p	1	1	2	3	4	5
+a	2	2	1	2	3	4
+t	3	3	2	1	2	3
+o	4	4	3	2	1	2
+s	5	5	4	3	2	1
+
+Q4
+Fucsia ha organizado una fiesta sorpresa para Coco y ya han llegado los invitados
+y colocaron sus regalos en fila en la mesa de regalos.
+Fucsia conoce muy bien a Coco, por eso sabe qué regalo le gustaría más. Eso
+Es por eso que etiqueta cada regalo con un número que representa cuánto le gustaría recibir un regalo.
+Fuchsia decide hacerle la fiesta más divertida a Coco; ella reorganizará los regalos así
+que el primer regalo es el que menos le gusta y así sucesivamente hasta que el último regalo es
+el que le gusta
+le gusta más.
+Fuchsia quiere saber la cantidad mínima de regalos que debe mover para que el
+Los regalos están organizados correctamente.
+Entrada: un número N que representa la cantidad de regalos, seguido de N números que representan
+cuánto le gustará a Coco cada regalo. (Restricción: No hay dos regalos con el
+mismo valor.)
+Resultado: La cantidad mínima de regalos que Fuchsia debe mover.
+
+a. Identificar el problema en términos generales.
+- Cada regalo tiene un numero, reorganizaran los regalos de tal forma que el primero sera el que menos le guste
+hasta el ultimo que si le gusta.
+Debemos de sacar la cantidad minima de movimientos, n es la cantidad de regalos, seguido de una cadena de numeros
+que son los regalos, no hay repetidos.
+-- Bottom up -> abajo ahi arriba.
+Problema:
+reorganizar una fila de regalos de tal manera que el primer regalo sea el
+ que menos le gusta y el último regalo sea el que más le gusta. Ella necesita determinar
+ la cantidad mínima de regalos que necesita mover para lograr este arreglo.
+
+b. Analiza el problema en base a subproblemas y encuentra la fórmula.
+
+- Necesito una formula
+- dp[i] -> cantidad minimo de movimientos
+ Casos:
+ - Si el valor del regalo es mayor que el valor maximo visto por ahora, se mueve este regalo, osea:
+ dp[i] = dp[i+1] +1
+ - Caso contrario, no se mueve:  dp[i] = dp[i-1]
+
+ osea:
+ tengo 4 regalos
+ 1   12   5    31
+ 1 movimiento es: 12 y 5
+ 1    5  12   31
+
+ C. Identifique dónde se produce la superposición de subproblemas.
+Cuando se mueve o no un regalo, depende del valor maximo que haya visto.
+
+d. Implemente la solución al problema utilizando DP ascendente.
+- Se puede facilitar con bottom up
+
