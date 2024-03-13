@@ -1,5 +1,5 @@
 package GreedyTask;
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Greedy {
@@ -13,39 +13,22 @@ public class Greedy {
             canisters[i] = scanner.nextInt();
         }
 
-        Arrays.sort(canisters);
-        reverse(canisters);
-
-        int trips = 0;
-        int i = 0;
-        while (i < n) {
-            int totalVolume = 0;
-            int carriedCans = 0;
-            while (i < n && totalVolume + canisters[i] <= k && carriedCans < 2) {
+        int trips = 0, i = n - 1;
+        while (i >= 0) {
+            int totalVolume = 0, carriedCans = 0;
+            while (i >= 0 && totalVolume + canisters[i] <= k && carriedCans < 2) {
                 totalVolume += canisters[i];
                 carriedCans++;
-                i++;
+                i--;
+            }
+            if (totalVolume == 0) {
+                System.out.println("Impossible");
+                return;
             }
             trips++;
         }
-        if (canisters[n - 1] > k) {
-            System.out.println("Impossible");
-        } else {
-            System.out.println(trips);
-        }
+        System.out.println(trips);
 
         scanner.close();
-    }
-
-    private static void reverse(int[] arr) {
-        int left = 0;
-        int right = arr.length - 1;
-        while (left < right) {
-            int temp = arr[left];
-            arr[left] = arr[right];
-            arr[right] = temp;
-            left++;
-            right--;
-        }
     }
 }
