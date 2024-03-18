@@ -8,17 +8,17 @@ public class ExercisesOne {
     }
 
     public static void naiveStringMatch(String text, String pattern) {
-        int n = text.length();
-        int m = pattern.length();
+        int textLength = text.length();
+        int patternLength = pattern.length();
 
-        for (int i = 0; i <= n - m; i++) {
+        for (int i = 0; i <= textLength - patternLength; i++) {
             int j;
-            for (j = 0; j < m; j++) {
+            for (j = 0; j < patternLength; j++) {
                 if (text.charAt(i + j) != pattern.charAt(j)) {
                     break;
                 }
             }
-            if (j == m) {
+            if (j == patternLength) {
                 System.out.println("Pattern found at index " + i);
             }
         }
