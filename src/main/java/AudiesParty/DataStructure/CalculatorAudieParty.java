@@ -31,7 +31,7 @@ public class CalculatorAudieParty {
         }
         StringBuilder stringBuilder = new StringBuilder();
         for (String current: names){
-            stringBuilder.append(current +" ");
+            stringBuilder.append(current).append(" ");
         }
         return stringBuilder.toString();
     }
@@ -60,18 +60,12 @@ public class CalculatorAudieParty {
     }
 
     private Group getGroupWithBestFriendly(Group current, Group selectedGroup){
-
-        if(current.getBestGroup() > selectedGroup.getBestGroup()){
-            selectedGroup = current;
-        }
+        if(current.getBestGroup() > selectedGroup.getBestGroup())selectedGroup = current;
         return selectedGroup;
     }
 
     private Group getGroupWithLeastFriendly(Group current, Group selectedGroup){
-
-        if(current.getLeastGroup() < selectedGroup.getLeastGroup()){
-            selectedGroup = current;
-        }
+        if(current.getLeastGroup() < selectedGroup.getLeastGroup()) selectedGroup = current;
         return selectedGroup;
 
     }
@@ -81,11 +75,10 @@ public class CalculatorAudieParty {
         Group selectedGroup = groups.get(0);
         Group current;
         for(Group group: groups){
-            if(group.getEdges().size() > 0){
+            if(!group.getEdges().isEmpty()){
                 current = group;
-                if(bestGroup) {
-                    selectedGroup = getGroupWithLeastFriendly(current, selectedGroup);
-                } else selectedGroup = getGroupWithBestFriendly(current, selectedGroup);
+                if(bestGroup) selectedGroup = getGroupWithLeastFriendly(current, selectedGroup);
+                else selectedGroup = getGroupWithBestFriendly(current, selectedGroup);
                 if(current.getLeastGroup() < selectedGroup.getLeastGroup()){
                     selectedGroup = current;
                 }
@@ -106,7 +99,7 @@ public class CalculatorAudieParty {
     public String generateBestPartyPlan(String pathInviteList, int friendLevelMinimun, int quantityGroups){
         StringBuilder stringBuilder = new StringBuilder();
         List<Edge> listEdges = calculateBestGroup(pathInviteList, friendLevelMinimun);
-        stringBuilder.append("--------------------------------------------------:\n");
+        stringBuilder.append("--------------------------------------------------\n");
         stringBuilder.append("Guests:\n");
         stringBuilder.append(getStringByEdgeList(listEdges)+"\n");
         Graph invites = ManagerGraph.createGraphByEdgeList(listEdges);
@@ -116,13 +109,13 @@ public class CalculatorAudieParty {
         stringBuilder.append(groups.size()).append("\n");
 
         stringBuilder.append(getStringByGroups(groups));
-        if(groups.size() > 0){
+        if(!groups.isEmpty()){
             String groupWithBestFriendly = getGroup(groups, true);
             String groupWithLeastFriendly = getGroup(groups, false);
             stringBuilder.append("Group with strongest friendly relationship: " + groupWithBestFriendly);
             stringBuilder.append("Group with least friendly relationship: "+ groupWithLeastFriendly);
         }
-        stringBuilder.append("--------------------------------------------------:\n");
+        stringBuilder.append("--------------------------------------------------\n");
         return stringBuilder.toString();
     }
 }

@@ -3,7 +3,6 @@ package org.example.AudiesParty.Model;
 import lombok.Getter;
 import lombok.Setter;
 
-// Data Structure
 @Getter
 @Setter
 public class Edge implements Comparable<Edge>{
@@ -23,7 +22,7 @@ public class Edge implements Comparable<Edge>{
         } else if (nodo.equals(nodoB)) {
             return nodoA;
         } else {
-            throw new IllegalArgumentException("El nodo dado no es uno de los nodos de la arista.");
+            throw new IllegalArgumentException("El nodo dado no es uno de los nodo de la arista.");
         }
     }
 

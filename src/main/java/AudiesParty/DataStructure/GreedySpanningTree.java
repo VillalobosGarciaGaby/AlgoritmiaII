@@ -5,11 +5,13 @@ import org.example.AudiesParty.Model.Group;
 import org.example.AudiesParty.Model.Nodo;
 import java.util.*;
 
-
 public class GreedySpanningTree {
 
     public static List<Edge> maxSpanningTree(Graph graph, int x, int initIndex) {
         List<Edge> maxSpanningTree = new ArrayList<>();
+        if (graph.getNodos().isEmpty()) {
+            return maxSpanningTree;
+        }
         Set<Nodo> visited = new HashSet<>();
         Nodo startNodo = graph.getNodos().get(initIndex);
         visited.add(startNodo);

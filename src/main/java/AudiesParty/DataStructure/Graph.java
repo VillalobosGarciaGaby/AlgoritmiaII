@@ -32,7 +32,7 @@ public class Graph {
         nodoB.getEdges().add(edge);
     }
 
-    private Nodo getNodeByName(String nodeName){
+    public Nodo getNodeByName(String nodeName){
         Nodo nodoFound = null;
         for (Nodo currentNodo : nodos) {
             if (currentNodo.getNamePeople().equals(nodeName)) {

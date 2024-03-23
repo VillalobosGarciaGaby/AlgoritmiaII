@@ -19,10 +19,6 @@ public class Nodo {
         inAGroup = false;
     }
 
-    public void insertEdge(Edge edge){
-        edges.add(edge);
-    }
-
     @Override
     public String toString() {
         return ("Node{" +

@@ -39,11 +39,6 @@ public class ManagerGraph {
         return graph;
     }
 
-    /**
-     * Return a sorted list
-     * @param edgeList
-     * @return
-     */
     public static Set<Nodo> getNodeListByEdgeList(List<Edge> edgeList){
         Set<Nodo> nodos = new HashSet<>();
         for(Edge edge: edgeList){
