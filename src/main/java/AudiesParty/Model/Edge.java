@@ -38,17 +38,4 @@ public class Edge implements Comparable<Edge>{
         return Integer.compare(this.weightFriendly, otherEdge.weightFriendly);
     }
 
-    private static Nodo getUnvisitedNode(Edge edge, Set<Nodo> visited) {
-        Nodo nodeA = edge.getNodoA();
-        Nodo nodeB = edge.getNodoB();
-
-        if (!visited.contains(nodeA)) {
-            return nodeA;
-        } else if (!visited.contains(nodeB)) {
-            return nodeB;
-        } else {
-            return null;
-        }
-    }
-
 }

@@ -148,10 +148,34 @@ public class CalculatorAudieParty {
      */
     public String generateBestPartyPlan(String pathInviteList, int friendLevelMinimun, int quantityGroups) {
         StringBuilder stringBuilder = new StringBuilder();
+        Graph invites = printGuest(pathInviteList, friendLevelMinimun, stringBuilder);
+        printGroup(quantityGroups, invites, stringBuilder);
+        return stringBuilder.toString();
+    }
+
+    /**
+     * Generates a guest list based on an invitation list file and a minimum friend level.
+     *
+     * @param pathInviteList     Path of the invitation list file.
+     * @param friendLevelMinimun Minimum required friendship level.
+     * @param stringBuilder      StringBuilder to which the generated information will be appended.
+     * @return                   A Graph object representing the generated invitations.
+     */
+    private Graph printGuest(String pathInviteList, int friendLevelMinimun, StringBuilder stringBuilder){
         List<Edge> listEdges = calculateBestGroup(pathInviteList, friendLevelMinimun);
         stringBuilder.append("Guests:\n");
         stringBuilder.append(getEdgeList(listEdges) + "\n");
-        Graph invites = ManagerGraph.createGraphByEdgeList(listEdges);
+        return ManagerGraph.createGraphByEdgeList(listEdges);
+    }
+
+    /**
+     * Prints information about the generated groups.
+     *
+     * @param quantityGroups Number of groups to generate.
+     * @param invites        Graph representing the invitations.
+     * @param stringBuilder  StringBuilder to which the generated information will be appended.
+     */
+    private void printGroup(int quantityGroups, Graph invites, StringBuilder stringBuilder){
         List<Group> groups = GreedySpanningTree.getBestGroups(invites, quantityGroups);
         stringBuilder.append("Group:\n");
         stringBuilder.append(groups.size()).append("\n");
@@ -162,6 +186,6 @@ public class CalculatorAudieParty {
             stringBuilder.append("Group with strongest friendly relationship: " + groupWithBestFriendly);
             stringBuilder.append("Group with least friendly relationship: " + groupWithLeastFriendly);
         }
-        return stringBuilder.toString();
     }
+
 }

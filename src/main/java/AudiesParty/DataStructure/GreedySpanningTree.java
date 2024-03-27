@@ -21,9 +21,7 @@ public class GreedySpanningTree {
         List<Edge> maxSpanningTree = new ArrayList<>();
         Set<Nodo> visited = new HashSet<>();
         PriorityQueue<Edge> queueEdges = new PriorityQueue<>((a, b) -> b.getWeightFriendly() - a.getWeightFriendly()); //donde la suma de los pesos de las aristas es mínima.
-
         visitNode(graph, initIndex, visited, queueEdges);
-
         while (!queueEdges.isEmpty()) {
             Edge edge = queueEdges.poll();
             if (edge.getWeightFriendly() < x) {
