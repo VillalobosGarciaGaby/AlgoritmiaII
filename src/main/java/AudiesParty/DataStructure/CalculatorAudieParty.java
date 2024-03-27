@@ -162,7 +162,6 @@ public class CalculatorAudieParty {
             stringBuilder.append("Group with strongest friendly relationship: " + groupWithBestFriendly);
             stringBuilder.append("Group with least friendly relationship: " + groupWithLeastFriendly);
         }
-        stringBuilder.append("--------------------------------------------------\n");
         return stringBuilder.toString();
     }
 }
