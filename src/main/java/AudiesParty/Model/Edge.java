@@ -24,7 +24,7 @@ public class Edge implements Comparable<Edge>{
         } else if (nodo.equals(nodoB)) {
             return nodoA;
         } else {
-            throw new IllegalArgumentException("El nodo dado no es uno de los nodo de la arista.");
+            throw new IllegalArgumentException("No es uno de los nodo de la arista.");
         }
     }
 
