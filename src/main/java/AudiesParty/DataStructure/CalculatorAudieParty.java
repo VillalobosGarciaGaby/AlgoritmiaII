@@ -79,7 +79,9 @@ public class CalculatorAudieParty {
             if(!group.getEdges().isEmpty()){
                 current = group;
                 if(bestGroup) selectedGroup = getGroupWithLeastFriendly(current, selectedGroup);
-                else selectedGroup = getGroupWithBestFriendly(current, selectedGroup);
+                else {
+                    selectedGroup = getGroupWithBestFriendly(current, selectedGroup);
+                }
                 if(current.getLeastGroup() < selectedGroup.getLeastGroup()){
                     selectedGroup = current;
                 }
@@ -100,12 +102,11 @@ public class CalculatorAudieParty {
     public String generateBestPartyPlan(String pathInviteList, int friendLevelMinimun, int quantityGroups){
         StringBuilder stringBuilder = new StringBuilder();
         List<Edge> listEdges = calculateBestGroup(pathInviteList, friendLevelMinimun);
-        stringBuilder.append("--------------------------------------------------\n");
         stringBuilder.append("Guests:\n");
         stringBuilder.append(getStringByEdgeList(listEdges)+"\n");
         Graph invites = ManagerGraph.createGraphByEdgeList(listEdges);
         List<Group> groups = GreedySpanningTree.getBestGroups(invites, quantityGroups);
-        stringBuilder.append("GROUPS:\n");
+        stringBuilder.append("Group:\n");
 
         stringBuilder.append(groups.size()).append("\n");
 
