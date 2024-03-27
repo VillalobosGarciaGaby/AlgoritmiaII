@@ -8,7 +8,7 @@ public class TestGraph {
     public void testGraph() {
 
         CalculatorAudieParty calculatorAudieParty = new CalculatorAudieParty();
-        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/org/example/AudiesParty/File/CaseOne.txt", 7, 2);
+        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/AudiesParty/File/CaseOne.txt", 7, 2);
 
         System.out.println(listFriends);
 
@@ -17,7 +17,7 @@ public class TestGraph {
     public void testGraph1() {
 
         CalculatorAudieParty calculatorAudieParty = new CalculatorAudieParty();
-        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/org/example/AudiesParty/File/CaseTwo", 10, 4);
+        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/AudiesParty/File/CaseTwo", 10, 4);
 
         System.out.println(listFriends);
     }
@@ -25,7 +25,7 @@ public class TestGraph {
     public void testGraph2() {
 
         CalculatorAudieParty calculatorAudieParty = new CalculatorAudieParty();
-        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/org/example/AudiesParty/File/CaseTwo", 10, 3);
+        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/AudiesParty/File/CaseTwo", 10, 3);
 
         System.out.println(listFriends);
     }
@@ -34,7 +34,7 @@ public class TestGraph {
     public void testGraph3() {
 
         CalculatorAudieParty calculatorAudieParty = new CalculatorAudieParty();
-        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/org/example/AudiesParty/File/CaseTwo", 14, 3);
+        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/AudiesParty/File/CaseTwo", 14, 3);
 
         System.out.println(listFriends);
     }
@@ -43,7 +43,7 @@ public class TestGraph {
     public void testGraph4() {
 
         CalculatorAudieParty calculatorAudieParty = new CalculatorAudieParty();
-        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/org/example/AudiesParty/File/CaseThree", 14, 4);
+        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/AudiesParty/File/CaseThree", 14, 4);
 
         System.out.println(listFriends);
     }
