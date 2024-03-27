@@ -9,14 +9,11 @@ public class GreedySpanningTree {
 
     public static List<Edge> maxSpanningTree(Graph graph, int x, int initIndex) {
         List<Edge> maxSpanningTree = new ArrayList<>();
-        if (graph.getNodos().isEmpty()) {
-            return maxSpanningTree;
-        }
         Set<Nodo> visited = new HashSet<>();
-        Nodo startNodo = graph.getNodos().get(initIndex);
-        visited.add(startNodo);
+        Nodo startNode = graph.getNodos().get(initIndex);
+        visited.add(startNode);
         PriorityQueue<Edge> queueEdges = new PriorityQueue<>((a, b) -> b.getWeightFriendly() - a.getWeightFriendly());
-        queueEdges.addAll(startNodo.getEdges());
+        queueEdges.addAll(startNode.getEdges());
         while (!queueEdges.isEmpty()) {
             Edge edge = queueEdges.poll();
             Nodo current;
@@ -43,31 +40,32 @@ public class GreedySpanningTree {
     }
 
 
+
     public static List<Group> getBestGroups(Graph invites, int missingGroups) {
         List<Group> groups = new ArrayList<>();
         Set<Nodo> visited = new HashSet<>();
         List<Edge> result = maxSpanningTree(invites, 0, 0);
         Collections.sort(result);
-        int index = result.size()-1;
+        int index = result.size() - 1;
         int nodesAvailable = invites.getNodos().size();
         Edge currentEdge;
         Group group = new Group();
         boolean validProportion = (nodesAvailable >= missingGroups);
-        while(( nodesAvailable >= missingGroups && missingGroups > 0) && validProportion){
+        while(( nodesAvailable >= missingGroups && missingGroups != 0) && validProportion){
             currentEdge = result.get(index);
-            Nodo nodoA = currentEdge.getNodoA();
-            Nodo nodoB = currentEdge.getNodoB();
-            if(!visited.contains(nodoA) && nodesAvailable >= missingGroups){
-                group.add(nodoA);
-                visited.add(nodoA);
+            Nodo nodeA = currentEdge.getNodoA();
+            Nodo nodeB = currentEdge.getNodoB();
+            if(!visited.contains(nodeA) && nodesAvailable >= missingGroups){
+                group.add(nodeA);
+                visited.add(nodeA);
                 nodesAvailable--;
             }
-            if(!visited.contains(nodoB) && nodesAvailable >= missingGroups){
-                group.add(nodoB);
-                visited.add(nodoB);
+            if(!visited.contains(nodeB) && nodesAvailable >= missingGroups){
+                group.add(nodeB);
+                visited.add(nodeB);
                 nodesAvailable--;
             }
-            if(group.contains(nodoA) && group.contains(nodoB)){
+            if(group.contains(nodeA) && group.contains(nodeB)){
                 group.addEdge(currentEdge);
             }
             if((index - 1 >= 0 && !isConnected(currentEdge, result.get(index - 1)) )|| nodesAvailable < missingGroups){
