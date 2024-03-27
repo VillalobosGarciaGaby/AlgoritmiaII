@@ -7,7 +7,13 @@ import java.util.List;
 import java.util.Set;
 
 public class ManagerGraph {
-    public static Graph createGraphPeopleByString(String text){
+    /**
+     * Creates a graph based on the given text.
+     *
+     * @param text The text containing node and edge information.
+     * @return The created graph.
+     */
+    public static Graph createGraphPeople(String text){
         Graph graph = new Graph();
         String nameA, nameB;
         int weight;
@@ -27,10 +33,15 @@ public class ManagerGraph {
         return graph;
     }
 
+    /**
+     * Creates a graph based on the given list of edges.
+     *
+     * @param edgeList The list of edges.
+     * @return The created graph.
+     */
     public static Graph createGraphByEdgeList(List<Edge> edgeList){
         Graph graph = new Graph();
-        Set<Nodo> nodos = getNodeListByEdgeList(edgeList);
-
+        Set<Nodo> nodos = getEdgeList(edgeList);
         for(Nodo nodo : nodos){
             graph.addNode(nodo);
         }
@@ -40,7 +51,13 @@ public class ManagerGraph {
         return graph;
     }
 
-    public static Set<Nodo> getNodeListByEdgeList(List<Edge> edgeList){
+    /**
+     * Extracts nodes from the given list of edges.
+     *
+     * @param edgeList The list of edges.
+     * @return The set of nodes extracted from the edge list.
+     */
+    public static Set<Nodo> getEdgeList(List<Edge> edgeList){
         Set<Nodo> nodos = new HashSet<>();
         for(Edge edge: edgeList){
             nodos.add(edge.getNodoA());

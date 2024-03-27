@@ -3,6 +3,8 @@ package AudiesParty.Model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 public class Edge implements Comparable<Edge>{
@@ -35,4 +37,18 @@ public class Edge implements Comparable<Edge>{
     public int compareTo(Edge otherEdge) {
         return Integer.compare(this.weightFriendly, otherEdge.weightFriendly);
     }
+
+    private static Nodo getUnvisitedNode(Edge edge, Set<Nodo> visited) {
+        Nodo nodeA = edge.getNodoA();
+        Nodo nodeB = edge.getNodoB();
+
+        if (!visited.contains(nodeA)) {
+            return nodeA;
+        } else if (!visited.contains(nodeB)) {
+            return nodeB;
+        } else {
+            return null;
+        }
+    }
+
 }
