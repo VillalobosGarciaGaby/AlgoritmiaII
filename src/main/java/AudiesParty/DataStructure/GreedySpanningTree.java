@@ -1,8 +1,8 @@
-package org.example.AudiesParty.DataStructure;
+package AudiesParty.DataStructure;
 
-import org.example.AudiesParty.Model.Edge;
-import org.example.AudiesParty.Model.Group;
-import org.example.AudiesParty.Model.Nodo;
+import AudiesParty.Model.Edge;
+import AudiesParty.Model.Group;
+import AudiesParty.Model.Nodo;
 import java.util.*;
 
 public class GreedySpanningTree {

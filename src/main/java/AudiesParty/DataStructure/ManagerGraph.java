@@ -1,10 +1,11 @@
-package org.example.AudiesParty.DataStructure;
+package AudiesParty.DataStructure;
 
-import org.example.AudiesParty.Model.Edge;
-import org.example.AudiesParty.Model.Nodo;
+import AudiesParty.Model.Edge;
+import AudiesParty.Model.Nodo;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 public class ManagerGraph {
     public static Graph createGraphPeopleByString(String text){
         Graph graph = new Graph();

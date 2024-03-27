@@ -1,4 +1,4 @@
-package org.example.AudiesParty.Model;
+package AudiesParty.Model;
 
 import lombok.Getter;
 import lombok.Setter;

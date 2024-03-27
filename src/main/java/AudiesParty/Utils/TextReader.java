@@ -1,4 +1,4 @@
-package org.example.AudiesParty.Utils;
+package AudiesParty.Utils;
 
 import java.io.*;
 public class TextReader {

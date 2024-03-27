@@ -1,7 +1,7 @@
 package AudiesParty.DataStructure;
 
-import org.example.AudiesParty.DataStructure.Graph;
-import org.example.AudiesParty.Model.Nodo;
+import AudiesParty.DataStructure.Graph;
+import AudiesParty.Model.Nodo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,8 +1,9 @@
-package org.example.AudiesParty.DataStructure;
-import org.example.AudiesParty.Model.Edge;
-import org.example.AudiesParty.Model.Group;
-import org.example.AudiesParty.Model.Nodo;
-import org.example.AudiesParty.Utils.TextReader;
+package AudiesParty.DataStructure;
+
+import AudiesParty.Model.Edge;
+import AudiesParty.Model.Group;
+import AudiesParty.Model.Nodo;
+import AudiesParty.Utils.TextReader;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;

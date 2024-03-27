@@ -1,12 +1,12 @@
-package org.example.AudiesParty.DataStructure;
+package AudiesParty.DataStructure;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.AudiesParty.Model.Edge;
-import org.example.AudiesParty.Model.Nodo;
+import AudiesParty.Model.Edge;
+import AudiesParty.Model.Nodo;
 
 import java.util.ArrayList;
-import java.util.*;
+import java.util.List;
 @Getter
 @Setter
 public class Graph {

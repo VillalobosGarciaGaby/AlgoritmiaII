@@ -1,5 +1,5 @@
 package AudiesParty;
-import org.example.AudiesParty.DataStructure.CalculatorAudieParty;
+import AudiesParty.DataStructure.CalculatorAudieParty;
 import org.junit.Test;
 
 public class TestGraph {

@@ -1,8 +1,8 @@
 package AudiesParty.Model;
 
-import org.example.AudiesParty.Model.Edge;
-import org.example.AudiesParty.Model.Group;
-import org.example.AudiesParty.Model.Nodo;
+import AudiesParty.Model.Edge;
+import AudiesParty.Model.Group;
+import AudiesParty.Model.Nodo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
