@@ -21,14 +21,6 @@ public class TestGraph {
 
         System.out.println(listFriends);
     }
-    @Test
-    public void testGraph2() {
-
-        CalculatorAudieParty calculatorAudieParty = new CalculatorAudieParty();
-        String listFriends = calculatorAudieParty.generateBestPartyPlan("src/main/java/AudiesParty/File/CaseTwo", 10, 3);
-
-        System.out.println(listFriends);
-    }
 
     @Test
     public void testGraph3() {
